@@ -6,13 +6,12 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [FormsModule,CommonModule,
-    ReactiveFormsModule,  // ✅ Fix: Import ReactiveFormsModule
-    ButtonModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+    selector: 'app-login',
+    imports: [FormsModule, CommonModule,
+        ReactiveFormsModule, // ✅ Fix: Import ReactiveFormsModule
+        ButtonModule],
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.scss'
 })
 export class LoginComponent {
   loginForm: FormGroup;

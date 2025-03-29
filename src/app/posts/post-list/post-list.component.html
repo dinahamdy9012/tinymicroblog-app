@@ -1,21 +1,40 @@
-<button pButton icon="pi pi-plus" class="create-post-btn" (click)="navigateToCreatePost()"><i class="pi pi-plus"></i>Create post</button>
-
-<div class="post-list">
-  <div *ngFor="let post of posts" class="post-card">
-    <p-card>
-      <ng-template pTemplate="header">
-        <div class="post-header">
-          <strong>{{ post.username }}</strong>
-        </div>
-      </ng-template>
-
-      <ng-template pTemplate="content">
-        <p class="post-text">{{ post.postText }}</p>
-        <img *ngIf="post.imageUrl" [src]="post.imageUrl" alt="Post Image" class="post-image" (error)="post.imageUrl = null"/>
-        <p class="post-date">{{ post.createdAt | date: 'short' }}</p>
-      </ng-template>
-    </p-card>
+<div class="container">
+  <div class="post-header-bar">
+    <p-button 
+      icon="pi pi-plus" 
+      label="Create Post" 
+      (click)="navigateToCreatePost()" 
+      class="create-post-button">
+    </p-button>
   </div>
-</div>
 
-<p-paginator [rows]="pageSize" [totalRecords]="totalRecords" (onPageChange)="onPageChange($event)"></p-paginator>
+  <div class="post-list">
+    <div *ngFor="let post of posts" class="post-card">
+      <p-card>
+        <ng-template pTemplate="header">
+          <div class="post-header">
+            <strong>{{ post.username }}</strong>
+          </div>
+        </ng-template>
+
+        <ng-template pTemplate="content">
+          <p class="post-text">{{ post.postText }}</p>
+          <img 
+            *ngIf="post.imageUrl" 
+            [src]="post.imageUrl" 
+            alt="Post Image" 
+            class="post-image" 
+            (error)="post.imageUrl = null"/>
+          <p class="post-date">{{ post.createdAt | date: 'short' }}</p>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+
+  <p-paginator 
+    [rows]="pageSize" 
+    [totalRecords]="totalRecords" 
+    (onPageChange)="onPageChange($event)" 
+    class="paginator">
+  </p-paginator>
+</div>

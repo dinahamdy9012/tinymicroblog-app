@@ -1,20 +1,32 @@
+<div class="create-post">
+  <p-card class="create-post-card">
+    <ng-template pTemplate="title">
+      <h2>Create a New Post</h2>
+    </ng-template>
 
-  <div class="create-post">
-    <h2>Create a New Post</h2>
-    
-    <form (ngSubmit)="submitPost()">
-      <!-- Post Content -->
-      <textarea pInputTextarea [(ngModel)]="postContent" name="postContent" placeholder="What's on your mind?" required></textarea>
-  
-      <!-- Image Upload -->
-      <p-fileUpload 
-      name="image"
-      accept="image/png, image/jpeg, image/webp"
-      maxFileSize="2000000"
-      [auto]="true" chooseLabel="Upload"
-      customUpload="true" (onUpload)="onFileSelected($event)">
-  </p-fileUpload>
-      <!-- Submit Button -->
-      <button pButton type="submit" label="Post" icon="pi pi-check"></button>
-    </form>
-  </div>
+    <ng-template pTemplate="content">
+      <form (ngSubmit)="submitPost()">
+        <!-- Post Content -->
+        <textarea pTextarea [(ngModel)]="postContent" name="postContent" 
+        placeholder="What's on your mind?" required class="post-textarea" maxlength="140"></textarea>
+
+        <!-- Image Upload -->
+        <p-fileUpload mode="advanced"
+          name="image"
+          accept="image/png, image/jpeg, image/webp"
+          maxFileSize="2000000"
+          [auto]="true"
+          chooseLabel="Upload"
+          chooseIcon="pi pi-upload"
+          (onSelect)="onFileSelected($event)"
+          class="upload-button">
+        </p-fileUpload>
+
+        <!-- Submit Button -->
+        <div class="post-actions">
+          <p-button type="submit" label="Post" [loading]="loading" icon="pi pi-check" class="post-button"/>
+        </div>
+      </form>
+    </ng-template>
+  </p-card>
+</div>

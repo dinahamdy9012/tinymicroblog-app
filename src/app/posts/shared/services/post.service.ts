@@ -16,8 +16,8 @@ export class PostService {
     return this.http.get<any>(`${this.apiUrl}/post/GetPosts?PageIndex=${page}&PageSize=${pageSize}&screenSize=${screenSize}`);
   }
 
-  createPost(content: string, imageUrl: string | null): Observable<any> {
-    return this.http.post(`${this.apiUrl}/post/CreatePost`, { content, imageUrl });
+  createPost(postText: string, imageUrl: string | null, latitude:number, longitude:number): Observable<any> {
+    return this.http.post(`${this.apiUrl}/post/CreatePost`, { postText, imageUrl,latitude, longitude });
   }
 
   uploadImage(file: File): Observable<string> {

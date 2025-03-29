@@ -5,18 +5,19 @@ import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
 import { CardModule } from 'primeng/card';
 import { Router } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
-  selector: 'app-post-list',
-  standalone: true,
-  imports: [
-    CommonModule,
-    TableModule,
-    PaginatorModule,
-    CardModule
-  ],
-  templateUrl: './post-list.component.html',
-  styleUrl: './post-list.component.scss'
+    selector: 'app-post-list',
+    imports: [
+        CommonModule,
+        TableModule,
+        PaginatorModule,
+        CardModule,
+        ButtonModule 
+    ],
+    templateUrl: './post-list.component.html',
+    styleUrl: './post-list.component.scss'
 })
 export class PostListComponent {
   posts: any[] = [];
