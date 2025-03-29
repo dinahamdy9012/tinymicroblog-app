@@ -1,0 +1,28 @@
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div class="card p-4 shadow-lg" style="width: 400px;">
+    <h2 class="text-center mb-3">Login</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <!-- Username -->
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" formControlName="username" class="form-control" pInputText placeholder="Enter username" />
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" formControlName="password" class="form-control" pInputText placeholder="Enter password" />
+      </div>
+
+      <!-- Error Message -->
+      <p *ngIf="errorMessage" class="text-danger text-center">{{ errorMessage }}</p>
+
+      <!-- Login Button -->
+      <button type="submit" [disabled]="loading" class="btn btn-primary w-100">
+        <i *ngIf="loading" class="pi pi-spin pi-spinner"></i>
+        {{ loading ? 'Logging in...' : 'Login' }}
+      </button>
+    </form>
+  </div>
+</div>

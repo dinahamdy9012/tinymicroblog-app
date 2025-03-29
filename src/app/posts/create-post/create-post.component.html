@@ -1,0 +1,20 @@
+
+  <div class="create-post">
+    <h2>Create a New Post</h2>
+    
+    <form (ngSubmit)="submitPost()">
+      <!-- Post Content -->
+      <textarea pInputTextarea [(ngModel)]="postContent" name="postContent" placeholder="What's on your mind?" required></textarea>
+  
+      <!-- Image Upload -->
+      <p-fileUpload 
+      name="image"
+      accept="image/png, image/jpeg, image/webp"
+      maxFileSize="2000000"
+      [auto]="true" chooseLabel="Upload"
+      customUpload="true" (onUpload)="onFileSelected($event)">
+  </p-fileUpload>
+      <!-- Submit Button -->
+      <button pButton type="submit" label="Post" icon="pi pi-check"></button>
+    </form>
+  </div>
